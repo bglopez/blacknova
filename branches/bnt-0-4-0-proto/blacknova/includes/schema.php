@@ -301,6 +301,51 @@ $db->Execute("CREATE TABLE $dbtables[logs](" .
              ")");
 echo "created.<BR>";
 
+echo "Creating table: bases...";
+$db->Execute("CREATE TABLE $dbtables[bases](" .
+             "planet_id bigint(20) unsigned DEFAULT '0' NOT NULL," .
+             "grid char(255)," .
+             "PRIMARY KEY (planet_id)" .
+             ")");
+echo "created.<BR>";
+
+echo "Creating table: fac_types...";
+$db->Execute("CREATE TABLE $dbtables[fac_types](" .
+             "type int DEFAULT '0' NOT NULL," .
+             "xsize int DEFAULT '1' NOT NULL," .
+             "ysize int DEFAULT '1' NOT NULL," .
+             "buildtime int DEFAULT '1' NOT NULL," .
+             "capacity bigint DEFAULT '0' NOT NULL," .
+             "cost_energy bigint DEFAULT '0' NOT NULL," .
+             "cost_ore bigint DEFAULT '0' NOT NULL," .
+             "cost_organics bigint DEFAULT '0' NOT NULL," .
+             "cost_goods bigint DEFAULT '0' NOT NULL," .
+             "drain_goods bigint DEFAULT '0' NOT NULL," .
+             "drain_organics bigint DEFAULT '0' NOT NULL," .
+             "drain_ore bigint DEFAULT '0' NOT NULL," .
+             "drain_energy bigint DEFAULT '0' NOT NULL," .
+             "drainonce_goods bigint DEFAULT '0' NOT NULL," .
+             "drainonce_organics bigint DEFAULT '0' NOT NULL," .
+             "drainonce_ore bigint DEFAULT '0' NOT NULL," .
+             "drainonce_energy bigint DEFAULT '0' NOT NULL," .
+             "power bigint DEFAULT '0' NOT NULL," .
+             "range bigint DEFAULT '0' NOT NULL," .
+             "recharge bigint DEFAULT '0' NOT NULL," .
+             "image varchar(30) NOT NULL," .
+             "PRIMARY KEY (type)" .
+             ")");
+echo "created.<BR>";
+
+echo "Creating table: facilities...";
+$db->Execute("CREATE TABLE $dbtables[facilities](" .
+             "type int DEFAULT '0' NOT NULL," .
+             "planet_id bigint(20) DEFAULT '0' NOT NULL," .
+             "built enum('Y','N') DEFAULT 'N' NOT NULL," .
+             "turns int DEFAULT '0' NOT NULL," .
+             "enabled enum('Y', 'N') DEFAULT 'N' NOT NULL" .
+             ")");
+echo "created.<BR>";
+
 //Finished
 echo "Database schema creation complete.<BR>";
 }

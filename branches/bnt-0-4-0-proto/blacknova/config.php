@@ -201,5 +201,7 @@ $min_value_capture = 50; //Percantage of planet's value a ship must be worth to 
 $defence_degrade_rate = 0.05;
 $energy_per_fighter = 0.10;
 
+$base_xsize = 6;
+$base_ysize = 6;
 
 ?>

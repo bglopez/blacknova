@@ -175,13 +175,22 @@ elseif($swordfish==$adminpass && $engage=="2")
   }
 //  $sectors=range(0,$sector_max);
 //  shuffle($sectors);
+  
+  $grid = "";
+
+  for($i=0; $i< $base_xsize * $base_ysize; $i++)
+    $grid.= "0 ";
+  
+  $planet_id = 1;
   for($i=0; $i<$nump; $i++)
   {
     $select = $db->Execute("SELECT $dbtables[universe].sector_id FROM $dbtables[universe], $dbtables[zones] WHERE $dbtables[universe].sector_id=$sectors[$i] AND $dbtables[zones].zone_id=$dbtables[universe].zone_id AND $dbtables[zones].allow_planet='N'") or die("DB error");
     if($select->RecordCount() == 0)
     {
         $insert = $db->Execute("INSERT INTO $dbtables[planets] (colonists, owner, corp, prod_ore, prod_organics, prod_goods, prod_energy, prod_fighters, prod_torp, sector_id) VALUES (2,0,0,$default_prod_ore,$default_prod_organics,$default_prod_goods,$default_prod_energy, $default_prod_fighters, $default_prod_torp,$sectors[$i])");
+        $insert = $db->Execute("INSERT INTO $dbtables[bases] (planet_id, grid) VALUES($planet_id, '$grid')");
         echo "$sectors[$i] - ";
+        $planet_id++;
     }
     else
       echo "<BR>Planet skipped in sector $sectors[$i]<BR>";

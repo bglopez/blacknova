@@ -70,7 +70,7 @@ if($res)
   {
     $planet[$i] = $res->fields;
     $i++;
-    $res->NextCount();
+    $res->MoveNext();
   }
 }
 

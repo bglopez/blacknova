@@ -1277,4 +1277,8 @@ $l_zname[4] = "War Zone";
 
 $l_warp_cantsame = "You can't create a link when the source is the same as the destination.";
 
+// ADDITION TO globals
+
+$l_planet = "Planet";
+
 ?>

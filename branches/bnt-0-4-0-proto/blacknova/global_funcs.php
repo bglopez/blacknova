@@ -77,6 +77,9 @@ $dbtables['ip_bans'] = "${db_prefix}ip_bans";
 $dbtables['IGB_transfers'] = "${db_prefix}IGB_transfers";
 $dbtables['logs'] = "${db_prefix}logs";
 $dbtables['gen_id'] = "${db_prefix}gen_id";
+$dbtables['fac_types'] = "${db_prefix}fac_types";
+$dbtables['facilities'] = "${db_prefix}facilities";
+$dbtables['bases'] = "${db_prefix}bases";
 
 function bigtitle()
 {

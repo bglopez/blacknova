@@ -95,6 +95,10 @@ elseif($playerinfo[dev_genesis] < 1)
 }
 else
 {
+  $grid = "";
+  for($i=0; $i< $base_xsize * $base_ysize; $i++)
+    $grid.= "0 ";
+
   $res = $db->Execute("SELECT allow_planet, corp_zone, owner FROM $dbtables[zones] WHERE zone_id='$sectorinfo[zone_id]'");
   $zoneinfo = $res->fields;
   if($zoneinfo[allow_planet] == 'N')
@@ -121,6 +125,11 @@ else
         {
           $query1 = "INSERT INTO $dbtables[planets] VALUES('', $playerinfo[sector], NULL, 0, 0, 0, 0, 0, 0, 0, 0, $playerinfo[ship_id], 0, 'N', 'N', $default_prod_organics, $default_prod_ore, $default_prod_goods, $default_prod_energy, $default_prod_fighters, $default_prod_torp, 'N')";
           $update1 = $db->Execute($query1);
+
+          $res = $db->Execute("SELECT MAX(planet_id) AS max FROM $dbtables[planets]");
+          $planet_id = $res->fields[max];
+          $insert = $db->Execute("INSERT INTO $dbtables[bases] (planet_id, grid) VALUES($planet_id, '$grid')");
+
           $query2 = "UPDATE $dbtables[ships] SET turns_used=turns_used+1, turns=turns-1, dev_genesis=dev_genesis-1 WHERE ship_id=$playerinfo[ship_id]";
           $update2 = $db->Execute($query2);
           echo $l_gns_pcreate;
@@ -135,6 +144,9 @@ else
     {
       $query1 = "INSERT INTO $dbtables[planets] VALUES('', $playerinfo[sector], NULL, 0, 0, 0, 0, 0, 0, 0, 0, $playerinfo[ship_id], 0, 'N', 'N', $default_prod_organics, $default_prod_ore, $default_prod_goods, $default_prod_energy, $default_prod_fighters, $default_prod_torp, 'N')";
       $update1 = $db->Execute($query1);
+      $res = $db->Execute("SELECT MAX(planet_id) AS max FROM $dbtables[planets]");
+      $planet_id = $res->fields[max];
+      $insert = $db->Execute("INSERT INTO $dbtables[bases] (planet_id, grid) VALUES($planet_id, '$grid')");
       $query2 = "UPDATE $dbtables[ships] SET turns_used=turns_used+1, turns=turns-1, dev_genesis=dev_genesis-1 WHERE ship_id=$playerinfo[ship_id]";
       $update2 = $db->Execute($query2);
       echo $l_gns_pcreate;
@@ -144,6 +156,9 @@ else
   {
     $query1 = "INSERT INTO $dbtables[planets] VALUES('', $playerinfo[sector], NULL, 0, 0, 0, 0, 0, 0, 0, 0, $playerinfo[ship_id], 0, 'N', 'N', $default_prod_organics, $default_prod_ore, $default_prod_goods, $default_prod_energy, $default_prod_fighters, $default_prod_torp, 'N')";
     $update1 = $db->Execute($query1);
+    $res = $db->Execute("SELECT MAX(planet_id) AS max FROM $dbtables[planets]");
+    $planet_id = $res->fields[max];
+    $insert = $db->Execute("INSERT INTO $dbtables[bases] (planet_id, grid) VALUES($planet_id, '$grid')");
     $query2 = "UPDATE $dbtables[ships] SET turns_used=turns_used+1, turns=turns-1, dev_genesis=dev_genesis-1 WHERE ship_id=$playerinfo[ship_id]";
     $update2 = $db->Execute($query2);
     echo $l_gns_pcreate;
