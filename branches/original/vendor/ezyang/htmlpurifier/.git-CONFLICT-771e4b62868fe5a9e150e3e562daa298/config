@@ -3,10 +3,9 @@
 	filemode = true
 	bare = false
 	logallrefupdates = true
-	ignorecase = true
 [remote "origin"]
-	fetch = +refs/heads/*:refs/remotes/origin/*
 	url = git://github.com/ezyang/htmlpurifier.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
 	pushurl = git@github.com:ezyang/htmlpurifier.git
 [branch "master"]
 	remote = origin
