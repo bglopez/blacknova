@@ -1,7 +1,7 @@
-# pack-refs with: peeled 
+# pack-refs with: peeled fully-peeled 
 6be498dbf8c12e39cf77f63afff431755a4623ee refs/remotes/origin/hiphop
 6c24bd945ff3202560cbd38dc430f88a6c4f747d refs/remotes/origin/imgcache
-fac747bdbdba6aeaba4bed91ef49b2378c1798e4 refs/remotes/origin/master
+80ebd4322e3b98bc25c3ed3effe99a1653bc00fc refs/remotes/origin/master
 102e202e5a1666ebab25d5e49f83c5325c3c4dba refs/remotes/origin/pi-tests
 35048a85cf8a206b2c4176ed3263ce93cdc54dff refs/remotes/origin/punycode
 999354c5416f8451ea9e5bd7487e53f5260b420d refs/remotes/origin/xml
@@ -65,3 +65,5 @@ ce681c6a28c5f2d7475693943744822878e0ccc8 refs/tags/v4.2.0
 ^17af0e4fc127e5ba7c7faee4eea194903bdcd53f
 1b02df1674a4c0f6e3427ffe62e5e7b0f34eb49e refs/tags/v4.5.0
 ^d516e2f8de435ea78cc6152abc425d3ff2c4d289
+dfe1dbe4e96fe96a1153d4c8b14fe5dbab85d4ac refs/tags/v4.6.0
+^6f389f0f25b90d0b495308efcfa073981177f0fd

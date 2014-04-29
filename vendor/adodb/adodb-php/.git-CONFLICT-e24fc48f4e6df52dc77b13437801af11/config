@@ -11,5 +11,5 @@
 	remote = origin
 	merge = refs/heads/master
 [remote "composer"]
-	url = git://github.com/cvele/adodb.git
+	url = git://github.com/ADOdb/ADOdb.git
 	fetch = +refs/heads/*:refs/remotes/composer/*
